@@ -8,10 +8,10 @@ lib_mysqludf_amqp_la_CFLAGS = -DMYSQL_SERVER @MYSQL_CFLAGS@ @RABBITMQ_CFLAGS@
 lib_mysqludf_amqp_la_LDFLAGS = -module -avoid-version -no-undefined @MYSQL_LDFLAGS@ @RABBITMQ_LIBS@
 
 installdb: uninstalldb
-	mysql -u root -p < ./installdb.sql;
+	mysql < ./installdb.sql;
 
 uninstalldb:
-	mysql -u root -p < ./uninstalldb.sql
+	mysql < ./uninstalldb.sql
 
 version:
-	mysql -u root -p --execute="SELECT lib_mysqludf_amqp_info();"
+	mysql --execute="SELECT lib_mysqludf_amqp_info();"
